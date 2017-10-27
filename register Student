@@ -1,0 +1,185 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for(;;)
+            {
+                CLear();
+                ShowMenu();
+                Process();
+}
+
+           
+        }
+        static void CLear()
+        {
+            Console.Clear();
+        }
+        static void ShowMenu()
+        {
+            string[] menu = new string[5];
+            menu[0] = "Register";
+            menu[1] = "Class";
+            menu[2] = "Book";
+            menu[3] = "StList";
+            menu[4] = "StProfile";
+            for (int i = 0; i < menu.Length; i++)
+            {
+                Console.Write(i + 1 + "-" + menu[i] + " ");
+            }
+        }
+        static void Process ()
+        {
+            Console.WriteLine();
+            string menuItem=Console.ReadLine();
+            Convert.ToInt32(menuItem);
+            switch(menuItem)
+            {
+                case "1":
+
+                    string output = RegisterSt();
+                    Console.WriteLine(output + " added successfully!");
+                    break;
+                case "2":
+                    ClassName();
+                    break;
+                case "3":
+                    Console.WriteLine("3");
+                    break;
+                case "4":
+                    Console.WriteLine("4");
+                    break;
+                case "5":
+                    Console.WriteLine("5");
+                    break;
+                default:
+                    Console.WriteLine("Invalid Choise!");
+                    break;
+            }
+            Console.ReadKey();
+            
+        }
+        static string RegisterSt()
+        {
+            Console.WriteLine("enter name:");
+            string studentName = Console.ReadLine();
+            Console.WriteLine("enter ID:");
+            string studentID = Console.ReadLine();
+            Console.WriteLine("enter lesson u want:");
+            string book = Console.ReadLine();
+            Console.WriteLine("choose class u want:");
+            ClassName();
+            string className = Console.ReadLine();
+            return studentID;
+        }
+        static void ClassName()
+        {
+            string[] className = new string[] { "A","B","C" };
+            for(int i=0; i<className.Length; i++)
+            {
+                Console.WriteLine(i+1 +"." +className[i]);
+            }
+            capacity();
+            
+        }
+        static void capacity()
+        {
+            int number = 30;
+            string chooseLesson =Console.ReadLine();
+            int lessonNum = Convert.ToInt32(chooseLesson);
+            switch(lessonNum)
+            {
+                case 1:
+                    int classA = number;
+                    if (classA>0)
+                    {
+                        Console.WriteLine("class capasity is "+classA);
+                        Console.WriteLine("Do u want to added?y/n");
+                        string ch=Console.ReadLine();
+                        switch(ch)
+                        {
+                            case "y":
+                                classA = classA - 1;
+                                Console.WriteLine("class capacity is " + classA);
+                                break;
+                            case "n":
+                                Environment.Exit(0);
+                                break;
+                            default:
+                                Console.WriteLine("invalid choise!");
+                                break;
+
+                        }
+                        
+                    }
+                   else
+                        Console.WriteLine("Capacity is full");
+                    break;
+                case 2:
+                    int classB = number;
+                    if (classB > 0)
+                    {
+                        Console.WriteLine("class capasity is " + classB);
+                        Console.WriteLine("Do u want to added?y/n");
+                        string ch = Console.ReadLine();
+                        switch (ch)
+                        {
+                            case "y":
+                                classB = classB - 1;
+                                Console.WriteLine("class capacity is " + classB);
+                                break;
+                            case "n":
+                                Environment.Exit(0);
+                                break;
+                            default:
+                                Console.WriteLine("invalid choise!");
+                                break;
+
+                        }
+
+                    }
+                    else
+                        Console.WriteLine("Capacity is full");
+                    break;
+                case 3:
+                    int classC = number;
+                    if (classC > 0)
+                    {
+                        Console.WriteLine("class capasity is " + classC);
+                        Console.WriteLine("Do u want to added?y/n");
+                        string ch = Console.ReadLine();
+                        switch (ch)
+                        {
+                            case "y":
+                                classC = classC - 1;
+                                Console.WriteLine("class capacity is " + classC);
+                                break;
+                            case "n":
+                                Environment.Exit(0);
+                                break;
+                            default:
+                                Console.WriteLine("invalid choise!");
+                                break;
+
+                        }
+
+                    }
+                    else
+                        Console.WriteLine("Capacity is full");
+                    break;
+                default:
+                    break;
+               
+            }
+            
+        }
+    }
+}
