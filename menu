@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Menu
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            string[] menu = { "1-file", "2-add", "3-help", "4-close" };
+           while(true)
+            {
+                
+                Console.Clear();
+                
+                for (int i = 0; i < menu.Length; i++)
+                {
+
+                    Console.Write(menu[i] + " ");
+
+                }
+                
+                Console.WriteLine();
+                string choise = Console.ReadLine();
+                switch (choise)
+                {
+                    case "1":
+                        Console.WriteLine("file item selected");
+                        break;
+                    case "2":
+                        string[] names = new string[2];
+                        string name;
+                        int indexArrey=0;
+                        if (indexArrey <names.Length)
+                        {
+                            Console.WriteLine("name :");
+                            name = Console.ReadLine();       
+                            names[indexArrey] = name;
+                            
+                            Console.WriteLine(name + " " + "added!");
+                            Console.WriteLine("hello" + " " + name);
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Database is full!");
+                        }
+                        indexArrey++;
+                        break;
+                    case "3":
+                        Console.WriteLine("help item selected");
+                        break;
+                    case "4":
+                        Console.WriteLine("Are u sure want to exit?"+" "+"1.Yes"+" "+"2.No");
+                        string exitChoise= Console.ReadLine();
+                        if(exitChoise=="1")
+                        {
+                            Environment.Exit(0);
+                        }
+                        
+                        break;
+                    default:
+                        Console.WriteLine("invalid choice!");
+                        break;
+                }
+                Console.ReadLine();
+
+            }
+
+
+        }
+    }
+}
