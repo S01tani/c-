@@ -1,0 +1,69 @@
+static void Main(string[] args)
+        {
+            //note1 : To compute the sine, cosine, and tangent, the standard library methods Math.Sin( ), Math.Cos( ), and Math.Tan( ) are used. Like Math.Sqrt( ), the trigonometric methods are called with a double argument, and they return a double result. The angles must be specified in radians.
+            double theta; //angle of radians
+            for(theta=0.1;theta <= 1.0 ; theta= theta+0.1)
+            {
+                Console.WriteLine("Sine of " + theta + "  is " + Math.Sin(theta));
+                Console.WriteLine("Cosine of " + theta + "  is " + Math.Cos(theta));
+                Console.WriteLine("Tangent of " + theta + "  is " + Math.Tan(theta));
+                Console.WriteLine();
+            }
+            //note2 : the most interesting C# numeric type is decimal, which is intended for use in monetary calculations. The decimal type utilizes 128 bits to represent values within the range 1E–28 to 7.9E+28
+            //Here is a program that uses a decimal type in a financial calculation. The program computes the discounted price given the original price and a discount percentage. 
+            decimal amount;
+            decimal rate_of_return;
+            int years, i;
+            amount = 1000.0M;
+            rate_of_return = 0.07M;
+            years = 10;
+            Console.WriteLine("Original investment: $" + amount);
+            Console.WriteLine("Rate of return: " + rate_of_return);
+            Console.WriteLine("Over " + years + " years");
+            for (i = 0; i < years; i++) amount = amount + (amount * rate_of_return);
+            Console.WriteLine("Future value is $" + amount);
+            //note3 : Up to this point, when data has been output using a WriteLine( ) statement, it has been displayed using the default format. However, the .NET Framework defines a sophisticated formatting mechanism that gives you detailed control over how data is displayed
+            // formes of writeLine
+            //first form of writeLine : When outputting lists of data, you have been separating each part of the list with a plus sign, as shown here: 
+            Console.WriteLine("You ordered " + 2 + " items at $" + 3 + " each.");
+            //second form of writeLine : To control how numeric data is formatted, you will need to use a second form of WriteLine( ), shown here, which allows you to embed formatting information: 
+            //WriteLine(“format string”, arg0, arg1, ... , argN);
+            //In this version, the arguments to WriteLine( ) are separated by commas and not + signs. The format string contains two items: regular, printing characters that are displayed as-is, and format specifiers. Format specifiers take this general form: {argnum, width: fmt}
+            //Here, argnum specifies the number of the argument (starting from zero) to display. The minimum width of the field is specified by width, and the format is specified by fmt. The width and fmt are optional.
+            // Both width and fmt are optional. Therefore, in its simplest form, a format specifier simply indicates which argument to display. For example, {0} indicates arg0, {1} specifies arg1, and so on. 
+            Console.WriteLine("February has {0} or {1} days.",28,29);
+            int j;
+            Console.WriteLine("Value/tSquared/tCubes");
+            for(j=0;j<10 ;j++)
+            {
+                Console.WriteLine("{0}\t{1}\t{2}",j,j*j,j*j*j);
+            }
+            //In the preceding examples, no formatting was applied to the values themselves. Of course, the purpose of using format specifiers is to control the way the data looks. 
+            //note4 :  using #s to mark the digit positions
+            Console.WriteLine("here is 10/3 :{0:#.##}",10.0/3.0);
+            Console.WriteLine("{0:###,###.##}",123456.78);
+            //note5 : to display monetary values ==> use the C format specifier
+            decimal balance;
+            balance = 12323.09m;
+            Console.WriteLine("Current balance is {0:C}",balance);
+            //-------------------Literals -----------------
+            //Convertions : automatic conversions - an impilicit type conversions -
+            //whan these two conditions are met , 1)the two types are compatible 2)the distination type has a range that is grather than the source type.
+            long l;
+            double d;
+            l = 100034567l;
+            d = l;
+            Console.WriteLine("l and d :{0} {1}",l,d);
+            //casting incompatible types
+            //Demonstrate casting.
+            double x, y;
+            byte B;
+            int s;;
+            x = 10.0;
+            y = 3.0;
+            // Cast double to int, fractional component lost. 
+            s = (int) (x / y);
+            Console.WriteLine("Integer outcome of x/y :{0}",s);
+
+
+        }
