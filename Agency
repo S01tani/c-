@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Agancy
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           for(;;)
+            {
+                Clr();
+                //define menu and call method to display
+                string[] menu = { "Register", "Search" };
+                for (int index = 0; index < menu.Length; index++)
+                {
+                    Menu(index + 1 + ". " + menu[index]);
+                }
+                string choise = Choose();
+                Process(choise);
+                WaitForSeeResault();
+            }
+
+        }
+        static void Clr()
+        {
+            Console.Clear();
+        }
+        static void Menu(string items)
+        {
+            
+            Console.WriteLine(items);
+        }
+        static string Choose()
+        {
+            return Console.ReadLine();
+        }
+        static void Process(string choise)
+        {
+            switch(choise)
+            {
+                case "1":
+                    Clr();
+                    Console.WriteLine("role:");
+                    string[] roles = { "Admin", "Driver", "Client","Back" };
+                    
+                        for (int i = 0; i < roles.Length; i++)
+                        {
+                            Menu(i+1 + ". " + roles[i]);
+                        }
+                    string whichRole = Choose();
+                    Process(whichRole);
+                    WaitForSeeResault();
+
+                    break;
+                case "2":
+                    Console.WriteLine("what do u want to search?");
+                    break;
+                default:
+                    Console.WriteLine("invalid choise!");
+                    break;
+            }
+        }
+        static void WaitForSeeResault()
+        {
+            Console.ReadKey(true);
+        }
+        //add client and driver to register - write a algorithm to generate eshterak code - search client info by eshterak code
+        //resault : we should use class i stopped this program 
+    }
+}
